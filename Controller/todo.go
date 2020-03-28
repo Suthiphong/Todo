@@ -66,5 +66,23 @@ func DeleteData(c *gin.Context) {
 }
 
 func EditData(c *gin.Context) {
-	c.JSON(200, "error")
+	var todo Model.Todo
+	c.Bind(&todo)
+	idPrimitive, err := primitive.ObjectIDFromHex(todo.ID)
+	filter := bson.D{
+		{Key: "_id", Value: idPrimitive},
+	}
+	update := bson.D{
+		{"$set", bson.D{
+			{Key: "text", Value: todo.Text},
+			{Key: "completed", Value: todo.Completed},
+		}},
+	}
+
+	updateResult, err := Config.Collect.UpdateOne(context.TODO(), filter, update)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	c.JSON(200, updateResult)
 }
