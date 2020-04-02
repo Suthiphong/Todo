@@ -116,3 +116,29 @@
   right:0;
 
 }
+
+.UsedNo {
+  background-color:#00ff00;
+}
+.UsedNo:hover {
+  cursor:pointer;
+}
+.UsedAct {
+  background-color:#bebebe;
+}
+.UsedAct:hover {
+  cursor:pointer;
+}
+.Used {
+  border-radius: 5px;
+  border-style:none;
+  padding:7px;
+  transition: 0.2s;
+}
+.Used:hover {
+  cursor: pointer;
+}
+.Used:active {
+  background-color:green;
+  transform: translateY(2px);
+}

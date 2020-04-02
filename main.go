@@ -10,6 +10,7 @@ import (
 func main() {
 	server := gin.Default()
 	server.Use(cors.Default())
+	
 	todo := server.Group("/todo")
 	route.Todo(todo)
 	server.Run()
