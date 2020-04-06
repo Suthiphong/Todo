@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const getTodos = () => {
   return axios
-  .get("http://localhost:8080/todo/")
+  .get("http://103.76.180.219:8080/todo/")
   .then( res=> {
     return res
   })
@@ -10,7 +10,7 @@ export const getTodos = () => {
 
 export const insertTodo = (data) => {
   return axios
-  .post("http://localhost:8080/todo/", {
+  .post("http://103.76.180.219:8080/todo/", {
     text: data
   })
   .then( res => {
@@ -20,7 +20,7 @@ export const insertTodo = (data) => {
 
 export const editTodo = (data) => {
   return axios
-  .put("http://localhost:8080/todo/", data)
+  .put("http://103.76.180.219:8080/todo/", data)
   .then( res => {
     return res
   })
@@ -29,7 +29,7 @@ export const editTodo = (data) => {
 
 export const deleteTodo = (id) => {
   return axios
-  .delete(`http://localhost:8080/todo/${id}`)
+  .delete(`http://103.76.180.219:8080/todo/${id}`)
   .then( res => {
     return res
   })
